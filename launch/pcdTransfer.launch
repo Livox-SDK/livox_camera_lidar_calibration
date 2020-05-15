@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <param name="input_bag_path"        value="$(find camera_lidar_calibration)/../../data/lidar/" />  <!-- rosbag folder -->
+    <param name="output_pcd_path"       value="$(find camera_lidar_calibration)/../../data/pcdFiles/" />  <!-- path to save new pcd files -->
+    
+    <param name="threshold_lidar"       type="int" value="80" />  <!-- the limit of messages to transfer to the pcd file, 80 means maximum 80 messages of lidar -->
+    <param name="data_num"              type="int" value="4" />  <!-- the number of the rosbag -->
+  
+    <node pkg="camera_lidar_calibration" name="pcdTransfer" type="pcdTransfer" output="screen"></node>
+
+</launch>
+

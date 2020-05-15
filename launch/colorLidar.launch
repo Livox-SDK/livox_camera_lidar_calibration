@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  
+    <param name="intrinsic_path"        value="$(find camera_lidar_calibration)/../../data/parameters/intrinsic.txt" />  <!-- intrinsic file -->
+    <param name="extrinsic_path"        value="$(find camera_lidar_calibration)/../../data/parameters/extrinsic.txt" />  <!-- extrinsic file -->
+  
+    <param name="input_bag_path"        value="$(find camera_lidar_calibration)/../../data/lidar/0.bag" />  <!-- rosbag to give the lidar info -->
+    <param name="input_photo_path"      value="$(find camera_lidar_calibration)/../../data/photo/0.bmp" />  <!-- photo to get RGB info -->
+
+    <param name="threshold_lidar"       type="int" value="80" />  <!-- the limit of messages to transfer to the pcd file, 80 means maximum 80 messages of lidar -->
+    
+  <node pkg="camera_lidar_calibration" name="colorLidar" type="colorLidar" output="screen"></node>
+  
+  <node name="rviz" pkg="rviz" type="rviz" respawn="true" args="-d $(find camera_lidar_calibration)/launch/config.rviz"/>
+
+</launch>
+

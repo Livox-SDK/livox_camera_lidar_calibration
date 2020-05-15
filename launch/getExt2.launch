@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  
+    <rosparam param="init_value">  [0.0, -1.0, 0.0, 0.0,
+                                    0.0, 0.0, -1.0, 0.0,
+                                    1.0, 0.0, 0.0,  0.0] </rosparam>  <!-- init value of roatation matrix(3*3 on the left) and the translation(3*1 vector on the right) -->
+  
+    <param name="intrinsic_path"    value="$(find camera_lidar_calibration)/../../data/parameters/intrinsic.txt" />  <!-- intrinsic file -->
+    <param name="extrinsic_path"    value="$(find camera_lidar_calibration)/../../data/parameters/extrinsic.txt" />  <!-- extrinsic file -->
+    <param name="input_lidar_path"  value="$(find camera_lidar_calibration)/../../data/corner_lidar.txt" />  <!-- get the lidar corner data -->
+    <param name="input_photo_path"  value="$(find camera_lidar_calibration)/../../data/corner_photo.txt" />  <!-- get the photo corner data -->
+    <param name="error_threshold"    type="int" value="10" />  <!-- the threshold of the reprojection error -->
+
+    <node pkg="camera_lidar_calibration" name="getExt2" type="getExt2" output="screen"></node>
+
+</launch>
+
