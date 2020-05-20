@@ -6,8 +6,8 @@
     
     <param name="row_number"            type="int" value="8" />  <!-- the number of block on the row -->
     <param name="col_number"            type="int" value="6" />  <!-- the number of block on the column -->
-    <param name="width"                 type="int" value="40" />  <!-- the width of each block on the chessboard(mm) -->
-    <param name="height"                type="int" value="40" />  <!-- the height of each block on the chessboard(mm)-->
+    <param name="width"                 type="int" value="38" />  <!-- the width of each block on the chessboard(mm) -->
+    <param name="height"                type="int" value="38" />  <!-- the height of each block on the chessboard(mm)-->
     
     <node pkg="camera_lidar_calibration" name="cameraCalib" type="cameraCalib" output="screen"></node>
 
