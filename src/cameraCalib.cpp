@@ -88,14 +88,14 @@ int main(int argc, char **argv) {
 		}
 		else {
 			Mat view_gray;
-			cvtColor(imageInput, view_gray, CV_RGB2GRAY);  // 转灰度图
+			cvtColor(imageInput, view_gray, cv::COLOR_RGB2GRAY);  // 转灰度图
 
 			/* 亚像素精确化 */
 			// image_points_buf 初始的角点坐标向量，同时作为亚像素坐标位置的输出
 			// Size(5,5) 搜索窗口大小
 			// （-1，-1）表示没有死区
 			// TermCriteria 角点的迭代过程的终止条件, 可以为迭代次数和角点精度两者的组合
-			cornerSubPix(view_gray, image_points_buf, Size(5, 5), Size(-1, -1), TermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 30, 0.1));
+			cornerSubPix(view_gray, image_points_buf, Size(5, 5), Size(-1, -1), TermCriteria(cv::TermCriteria::EPS + cv::TermCriteria::MAX_ITER, 30, 0.1));
 
 			image_points_seq.push_back(image_points_buf);  // 保存亚像素角点
 
