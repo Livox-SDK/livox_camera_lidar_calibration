@@ -44,8 +44,10 @@ You can skip this step if they are already installed.
 #### 1.3 Download source code and compile
 
 ```
+mkdir -p ws_camera_lidar_calibration/src
+cd ws_camera_lidar_calibration/src
 git clone https://github.com/Livox-SDK/livox_camera_lidar_calibration.git
-cd camera_lidar_calibration
+cd ..
 catkin_make
 source devel/setup.bash
 ```
