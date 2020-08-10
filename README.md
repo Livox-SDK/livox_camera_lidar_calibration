@@ -26,6 +26,7 @@ make
 sudo make install
 
 # install livox_ros_driver
+cd ..
 git clone https://github.com/Livox-SDK/livox_ros_driver.git ws_livox/src
 cd ws_livox
 catkin_make
@@ -44,8 +45,10 @@ You can skip this step if they are already installed.
 #### 1.3 Download source code and compile
 
 ```
+# install camera/lidar calibration package
+cd src
 git clone https://github.com/Livox-SDK/livox_camera_lidar_calibration.git
-cd camera_lidar_calibration
+cd ..
 catkin_make
 source devel/setup.bash
 ```
