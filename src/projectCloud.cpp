@@ -159,6 +159,11 @@ int main(int argc, char **argv) {
     distCoeffs.at<double>(2, 0) = distortion[2];
     distCoeffs.at<double>(3, 0) = distortion[3];
     distCoeffs.at<double>(4, 0) = distortion[4];
+	
+    cv::Mat view, rview, map1, map2;
+    cv::Size imageSize = src_img.size();
+    cv::initUndistortRectifyMap(cameraMatrix, distCoeffs, cv::Mat(),cv::getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, 0), imageSize, CV_16SC2, map1, map2);
+    cv::remap(src_img, src_img, map1, map2, cv::INTER_LINEAR);  // correct the distortion
 
     ROS_INFO("Start to project the lidar cloud");
     float x, y, z;
@@ -189,10 +194,10 @@ int main(int argc, char **argv) {
     }
     ROS_INFO("Show and save the picture, tap any key to close the photo");
 
-    cv::Mat view, rview, map1, map2;
-    cv::Size imageSize = src_img.size();
-    cv::initUndistortRectifyMap(cameraMatrix, distCoeffs, cv::Mat(),cv::getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, 0), imageSize, CV_16SC2, map1, map2);
-    cv::remap(src_img, src_img, map1, map2, cv::INTER_LINEAR);  // correct the distortion
+//     cv::Mat view, rview, map1, map2;
+//     cv::Size imageSize = src_img.size();
+//     cv::initUndistortRectifyMap(cameraMatrix, distCoeffs, cv::Mat(),cv::getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, 0), imageSize, CV_16SC2, map1, map2);
+//     cv::remap(src_img, src_img, map1, map2, cv::INTER_LINEAR);  // correct the distortion
     cv::namedWindow("source", cv::WINDOW_KEEPRATIO);
     
     cv::imshow("source", src_img);
