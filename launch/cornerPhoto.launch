@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
   
-    <param name="intrinsic_path"    value="$(find camera_lidar_calibration)/../../data/parameters/intrinsic.txt" />  <!-- intrinsic file -->
-    <param name="input_photo_path"  value="$(find camera_lidar_calibration)/../../data/photo/0.bmp" />  <!-- photo to find the corner -->
-    <param name="ouput_path"        value="$(find camera_lidar_calibration)/../../data/corner_photo.txt" />  <!-- file to save the photo corner -->
+    <param name="intrinsic_path"           value="$(find camera_lidar_calibration)/../../data/parameters/intrinsic.txt" />  <!-- intrinsic file -->
+    <param name="input_photo_folder_path"  value="$(find camera_lidar_calibration)/../../data/photo" />   <!-- photo's folder to find the corners -->
+    <param name="ouput_path"               value="$(find camera_lidar_calibration)/../../data/corner_photo.txt" />  <!-- file to save the photo corners -->
     
     <node pkg="camera_lidar_calibration" name="cornerPhoto" type="cornerPhoto" output="screen"></node>
 
