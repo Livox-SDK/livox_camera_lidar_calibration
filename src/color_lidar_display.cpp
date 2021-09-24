@@ -209,11 +209,6 @@ int main(int argc, char **argv) {
                     continue;
                 }
                 
-                // set coordinate for the cloud point
-                cloud->points[i].x = x;
-                cloud->points[i].y = y;
-                cloud->points[i].z = z;
-
                 // set the RGB for the cloud point  
                 int RGB[3] = {0, 0, 0}; 
                 getColor(matrix_in, matrix_out, x, y, z, row, col, color_vector, RGB); 
@@ -221,7 +216,11 @@ int main(int argc, char **argv) {
                 if (RGB[0] == 0 && RGB[1] == 0 && RGB[2] == 0) {  
                     continue;
                 }
-                
+		// set coordinate for the cloud point
+                cloud->points[i].x = x;
+                cloud->points[i].y = y;
+                cloud->points[i].z = z;
+
                 cloud->points[i].r = RGB[0];
                 cloud->points[i].g = RGB[1];
                 cloud->points[i].b = RGB[2];
